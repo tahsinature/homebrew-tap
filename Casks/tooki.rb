@@ -1,8 +1,8 @@
 # Homebrew cask, published in the tahsinature/homebrew-tap repository.
 # The release workflow fills in `version` and `sha256` and pushes this file to the tap.
 cask "tooki" do
-  version "0.4.1"
-  sha256 "aec46479de637205529d21234ce0c2bc1c120a172989187e0fead8579f765af6"
+  version "0.5.0"
+  sha256 "ace25f78c05063acc7b73108a0b47c7bdae44aaa66198dd50f3f6d3e881f2769"
 
   url "https://github.com/tahsinature/tooki/releases/download/v#{version}/Tooki.dmg"
   name "Tooki"
