@@ -1,8 +1,8 @@
 # Homebrew cask, published in the tahsinature/homebrew-tap repository.
 # The release workflow fills in `version` and `sha256` and pushes this file to the tap.
 cask "tooki" do
-  version "0.8.0"
-  sha256 "ad7fd20b83795927888c9eb1e67fd1bdc12b736bef6857ba257390ccfe587496"
+  version "0.8.1"
+  sha256 "622551f91aa3bdf5fab5776bbc1e9694ef54abd723ec51312de37facb67c8993"
 
   url "https://github.com/tahsinature/tooki/releases/download/v#{version}/Tooki.dmg"
   name "Tooki"
@@ -25,5 +25,5 @@ cask "tooki" do
     system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{appdir}/Tooki.app"]
   end
 
-  uninstall quit: "com.mohammadtahsin.tooki"
+  uninstall quit: "us.tahsin.tooki"
 end
