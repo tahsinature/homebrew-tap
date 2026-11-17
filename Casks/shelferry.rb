@@ -1,6 +1,6 @@
 cask "shelferry" do
-  version "0.1.1"
-  sha256 "76eb1da0b4639b2b3142f29b9c3e45b520dd39263c11220d368027545761bf5f"
+  version "0.1.2"
+  sha256 "2d85c74b5f9bd2e94a85be96434317c93c85c5a2b6c6be3f04750e7c3681b398"
 
   url "https://github.com/tahsinature/shelferry/releases/download/v#{version}/Shelferry.zip"
   name "Shelferry"
@@ -15,7 +15,7 @@ cask "shelferry" do
   uninstall quit: "us.tahsin.shelferry"
 
   caveats <<~EOS
-    Shelferry is currently ad-hoc signed, not Apple-notarized.
+    Shelferry is not Apple-notarized.
     If macOS blocks it, review and allow it in System Settings > Privacy & Security.
     Yazi plugin: ya pkg add tahsinature/shelferry:shelferry
   EOS
