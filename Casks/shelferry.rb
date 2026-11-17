@@ -1,6 +1,6 @@
 cask "shelferry" do
-  version "0.1.0"
-  sha256 "6f07e48c7a8e677812203a888cddcafcb1827f4af117cf616072c0a8637cd5ea"
+  version "0.1.1"
+  sha256 "76eb1da0b4639b2b3142f29b9c3e45b520dd39263c11220d368027545761bf5f"
 
   url "https://github.com/tahsinature/shelferry/releases/download/v#{version}/Shelferry.zip"
   name "Shelferry"
