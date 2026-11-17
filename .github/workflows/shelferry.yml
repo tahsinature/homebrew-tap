@@ -1,0 +1,37 @@
+name: Update Shelferry
+on:
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: update-shelferry
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch verified release cask
+        run: |
+          version="$(gh release view --repo tahsinature/shelferry --json tagName --jq .tagName)"
+          [[ "$version" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          mkdir -p /tmp/shelferry-release
+          gh release download "$version" --repo tahsinature/shelferry --pattern Shelferry.zip --pattern shelferry.rb --dir /tmp/shelferry-release
+          sha="$(sha256sum /tmp/shelferry-release/Shelferry.zip | cut -d ' ' -f1)"
+          grep -F "  sha256 \"$sha\"" /tmp/shelferry-release/shelferry.rb
+          grep -F "  version \"${version#v}\"" /tmp/shelferry-release/shelferry.rb
+          grep -F 'https://github.com/tahsinature/shelferry/releases/download/v#{version}/Shelferry.zip' /tmp/shelferry-release/shelferry.rb
+          cp /tmp/shelferry-release/shelferry.rb Casks/shelferry.rb
+      - name: Publish cask update
+        run: |
+          git add Casks/shelferry.rb
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update Shelferry cask"
+          git pull --rebase origin main
+          git push
