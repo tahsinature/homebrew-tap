@@ -1,8 +1,8 @@
 # Homebrew cask, published in the tahsinature/homebrew-tap repository.
 # The release workflow fills in `version` and `sha256` and pushes this file to the tap.
 cask "typa" do
-  version "0.1.22"
-  sha256 "94c53ee5e4351fd3d605ee5ee9bfbe04382f4b8cc2e04808db7b4d527a122182"
+  version "0.1.23"
+  sha256 "6567cf954f2158680a6bfd02542d18f30d4afb85c8200b0806047260199c0b7b"
 
   url "https://github.com/tahsinature/typa/releases/download/v#{version}/Typa_#{version}_universal.dmg"
   name "Typa"
